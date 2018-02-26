@@ -1,0 +1,53 @@
+#extra_menu {
+  position: fixed;
+  right: 50px;
+  bottom: 20px;
+}
+
+#items {
+  display: none;
+  text-align: center;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 600px;
+  height: 400px;
+  background-color: #5c8469;
+}
+
+#items_menu:after {
+  display: block;
+  height: 0px;
+  clear: both;
+  float: none;
+}
+
+#items_menu div {
+  float: left;
+  word-break: break-all;
+  cursor:default;
+  border-radius: 5px;
+  padding-top: 35px;
+}
+
+#items_banner {
+  height: calc(100% - 106px);
+  width: 100%;
+}
+
+#items_item {
+  display: none;
+  width: 100%;
+}
+
+#items_item img {
+  width: 80px;
+  height: 80px;
+}
+
+#items_item_dots {
+  display: none;
+}

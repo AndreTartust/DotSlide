@@ -1,0 +1,166 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/game.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/extras.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/gambling.css">
+</head>
+<body onload="items_preload(), profile_preload()">
+<div id="screen">
+  <div id="game_window">
+    <div id="balloon">
+      <img id="skin_balloon" src="http://pngimg.com/uploads/dot/dot_PNG39.png" />
+    </div>
+  </div>
+</div>
+
+<div id="info_bar">
+  <p id="time">Time left: <span id="time_left">20</span></p>
+  <p id="score">Score: <span id="score_count">0</span></p>
+</div>
+
+<div id="extra_menu">
+  <img onclick="items_open()" style="width: 80px; height: 80px;" src="http://simpleicon.com/wp-content/uploads/shop-5.png" />
+</div>
+
+<div id="menu">
+  <div id="menu_main">
+    <div id="menu_main_play" class="menu_button" style="width: 90%; height: 70px;margin-top: 20px; margin-left: auto; margin-right: auto;">
+      <h1 style="padding-top: 18px;">PLAY</h1>
+    </div>
+    <div class="menu_button" style="width: 90%; height: 70px;margin-top: 20px; margin-left: auto; margin-right: auto;">
+      <h1 style="padding-top: 18px;">CREDITS</h1>
+    </div>
+  </div>
+
+  <div id="menu_game">
+    <div id="menu_game_easy" class="menu_button" style="width: 90%; height: 70px;margin-top: 20px; margin-left: auto; margin-right: auto;">
+      <h1 style="padding-top: 18px;">EASY</h1>
+    </div>
+    <div id="menu_game_back" class="menu_button" style="width: 90%; height: 70px;margin-top: 20px; margin-left: auto; margin-right: auto;">
+      <h1 style="padding-top: 18px;">BACK</h1>
+    </div>
+  </div>
+</div>
+
+<div id="starting_screen">
+  <p>Game starts in <span id="countdown">3</span> seconds</p>
+</div>
+
+<div id="game_over">
+  <h1>GAME OVER!</h1>
+  <p>Your score is <span id="game_ended_score">0</span></p>
+  <button id="game_over_menu" style="display: inline; width: 80px; margin-top: 25px;">MENU</button>
+  <button id="game_over_restart" style="display: inline; width: 80px; margin-top: 25px;">RESTART</button>
+</div>
+
+<div id="items">
+  <div id="items_head" style="height: 21px;text-align:right;background-color:darkgreen;">
+    <button onclick="items_close()">X</button>
+  </div>
+  <div id="items_menu">
+    <div id="items_menu_dots" style="width: 200px;height: 50px;background-color: #b45cbc;">DOTS</div>
+    <div id="items_menu_cursors" style="width: 200px;height: 50px;background-color: #5cf977;">CURSORS</div>
+    <div id="items_menu_backgrounds" style="width: 200px;height: 50px;background-color: #b45cbc;">BACKGROUNDS</div>
+  </div>
+  <div id="items_item">
+    <div id="items_item_dots">
+      <table>
+        <tr id="items_item_dots_line1">
+
+        </tr>
+      </table>
+    </div>
+    <div id="items_item_cursors">
+      <table>
+        <tr id="items_item_cursors_line1">
+
+        </tr>
+      </table>
+    </div>
+    <div id="items_item_backgrounds">
+      <table>
+        <tr id="items_item_backgrounds_line1">
+
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="items_banner">
+    <img style="width: 100%; height: 100%;" src="https://pixel.nymag.com/imgs/daily/vulture/2017/04/06/06-rick-morty.w710.h473.jpg" />
+  </div>
+</div>
+
+<div id="gambling">
+  <div id="gambling_head" style="height: 21px;text-align:right;background-color:darkgreen;">
+    <button onclick="gambling_close()">X</button>
+  </div>
+  <div id="gambling_screen">
+    <div id="hi_lo_game">
+      <h2 style="margin-top: 50px;margin-bottom: 5px;">HI - LO GAME</h2>
+      <span>Guess if number is going to be higher or lower than 50</span>
+      <h1 id="number_rolled">50</h1>
+      <form onsubmit="hi_lo_generate(event)">
+        <input onclick="game_hi(event)" id="game_hi_b" type="button" value="/\" style="height: 40px; width: 40px;background-color: none;"></input>
+        <input type="number" id="bet_value" min="1" max="1000000" style="height: 40px;width: 170px;text-align: center;"></input>
+        <input onclick="game_lo(event)" id="game_lo_b" type="button" value="\/" style="height: 40px; width: 40px;background-color: none;"></input><br>
+        <button type="sumbit" style="width: 265px; height: 30px;margin-top: 10px;">ROLL</button>
+      </form>
+      <img onclick="open_mystery_box_window()" style="width: 100%; height: 100px;" src="http://olly.sg/media/catalog/category/gifts_banner_v3_1.jpg" />
+    </div>
+    <div id="open_mystery_box">
+      <h3 onclick="close_mystery_box_window()" style="position:absolute;left: 5; top: 0;cursor: default;">< BACK</h3>
+      <p style="font-size: 20px;font-weight:bold;padding-top: 50px;">Click Mystery Box to open it!</p>
+      <img onclick="open_box()" style="height: 100px;" src="https://vignette.wikia.nocookie.net/fantendo/images/d/d1/Shiny_Question_Block_Artwork_-_Super_Mario_3D_World.png/revision/latest/scale-to-width-down/515?cb=20131203173550" />
+      <p style="padding-top: 20px;">REWARDS</p>
+      <div style="width: 95%;height: 80px; margin-left: auto; margin-right: auto;background-color: lightgray;">
+        <table>
+          <tr id="reward_listing">
+
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; top:21px; left: 0; right: 0; width: 220px; height: 25px; margin-left: auto; margin-right: auto; background-color:green;text-align:center;">
+    <span style="font-size: 20px;">MYSTERY COINS: <span id="mystery_coins">0</span></span>
+  </div>
+
+</div>
+
+<div id="profile">
+  <div onclick="open_gambling()" id="open_gambling">
+    <img style="height: 30px;margin-top: 10px;margin-left:15px;" src="https://s3.amazonaws.com/gdsgiffile.gamedeveloperstudio.com/Spinningcoin--1q4q6x1q9s4t6y9p50.gif" />
+  </div>
+  <div id="display_information">
+    <div id="profile_display_level">
+      <span style="padding-top: 10px;">LEVEL: </span><span id="profile_level">1</span>
+    </div>
+  </div>
+  <div id="level_up_notification_blur">
+    <p>(click anywhere to close)</p>
+  </div>
+  <div id="level_up_notification">
+    <p id="level_up_title">Congratulations!</p>
+    <div style="padding-top: 10px;">
+      <span id="level_up_text">You reached new level!</span><br>
+      <span id="level_up_new_level">1</span><br>
+    </div>
+    <p style="padding-bottom: 10px;"><strong>You got 1 new mystery coin...</strong></p>
+    <p><strong>NEW ITEMS</strong></p>
+    <div id="new_items_listing">
+      <table>
+        <tr id="new_items_table">
+
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+
+<script src="javascript/logic.js"></script>
+<script src="javascript/animation.js"></script>
+<script src="javascript/extras.js"></script>
+<script src="javascript/profile.js"></script>
+<script src="javascript/gambling.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
